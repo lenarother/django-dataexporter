@@ -1,7 +1,7 @@
 from datetime import date
 
-from django.db.models.query import QuerySet
 from django.db.models.fields import FieldDoesNotExist
+from django.db.models.query import QuerySet
 from django.http import HttpResponse
 from django.utils.text import slugify
 
