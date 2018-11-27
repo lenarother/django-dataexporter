@@ -139,4 +139,5 @@ class Exporter(object):
 
     def get_http_response(self, request, queryset):
         response = HttpResponse(content_type=self.http_content_type)
+        response['Content-Disposition'] = 'attachment; filename=%s' % self.get_filename()
         return self.write(queryset, response)
