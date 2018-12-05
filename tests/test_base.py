@@ -88,5 +88,17 @@ class TestExporter:
 
         assert exporter.get_header(DummyModel.objects.all()) == ['Firstname', 'slug', 'E-mail']
 
+    def test_get_header_with_queryset_with_field_header_verbose_names_dotted_fields(self):
+        name = 'Foo'
+        slug = 'bar'
+        email = 'foo@bar.baz'
+        fields = ('name', 'slug.lower', 'email')
+        field_header_verbose_names = {'name': 'Firstname', 'email': 'E-mail'}
+        DummyModel.objects.create(name=name, slug=slug, email=email)
+        exporter = Exporter(
+            fields=fields, field_header_verbose_names=field_header_verbose_names)
+
+        assert exporter.get_header(DummyModel.objects.all()) == ['Firstname', 'lower', 'E-mail']
+
     def test_get_header_columns(self):
         assert Exporter().get_header_colums(DummyModel.objects.all()) == ()
