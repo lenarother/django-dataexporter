@@ -81,7 +81,7 @@ class Exporter(object):
             try:
                 columns.append(str(
                     obj._meta.get_field(field_name).verbose_name))
-            except FieldDoesNotExist:
+            except (AttributeError, FieldDoesNotExist):
                 columns.append(field)
 
         return columns
