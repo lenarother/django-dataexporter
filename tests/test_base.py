@@ -102,3 +102,27 @@ class TestExporter:
 
     def test_get_header_columns(self):
         assert Exporter().get_header_colums(DummyModel.objects.all()) == ()
+
+    def test_get_data_value_dict(self):
+        record = {'foo': 'bar'}
+        assert Exporter().get_data_value(record, 'foo') == 'bar'
+
+    def test_get_data_value_object(self):
+        record = DummyModel(name='foo')
+        assert Exporter().get_data_value(record, 'name') == 'foo'
+
+    def test_get_data_value_callable(self):
+        record = DummyModel(name='foo')
+        assert Exporter().get_data_value(record, 'name.upper') == 'FOO'
+
+    def test_get_data_value_nested_dict(self):
+        record = {'foo': {'bar': 'baz'}}
+        assert Exporter().get_data_value(record, 'foo.bar') == 'baz'
+
+    def test_get_data_value_nested_dict_invalid_path(self):
+        record = {'foo': {'bar': 'baz'}}
+        assert Exporter().get_data_value(record, 'foo.lorem') == ''
+
+    def test_get_data_value_dict_normalize_none(self):
+        record = {'foo': None}
+        assert Exporter().get_data_value(record, 'foo') == ''
