@@ -1,23 +1,23 @@
-django-exporter
-===============
+django-dataexporter
+===================
 
-.. image:: https://img.shields.io/pypi/v/django-exporter.svg
-   :target: https://pypi.org/project/django-exporter/
+.. image:: https://img.shields.io/pypi/v/django-dataexporter.svg
+   :target: https://pypi.org/project/django-dataexporter/
    :alt: Latest Version
 
-.. image:: https://codecov.io/gh/moccu/django-exporter/branch/master/graph/badge.svg
-   :target: https://codecov.io/gh/moccu/django-exporter
+.. image:: https://codecov.io/gh/moccu/django-dataexporter/branch/master/graph/badge.svg
+   :target: https://codecov.io/gh/moccu/django-dataexporter
    :alt: Coverage Status
 
-.. image:: https://readthedocs.org/projects/django-exporter/badge/?version=latest
-   :target: https://django-exporter.readthedocs.io/en/stable/?badge=latest
+.. image:: https://readthedocs.org/projects/django-dataexporter/badge/?version=latest
+   :target: https://django-dataexporter.readthedocs.io/en/stable/?badge=latest
    :alt: Documentation Status
 
-.. image:: https://travis-ci.org/moccu/django-exporter.svg?branch=master
-   :target: https://travis-ci.org/moccu/django-exporter
+.. image:: https://travis-ci.org/moccu/django-dataexporter.svg?branch=master
+   :target: https://travis-ci.org/moccu/django-dataexporter
 
 
-*django-exporter* is a extensible helper to export Django QuerySets and other data to CSV and Excel.
+*django-dataexporter* is a extensible helper to export Django QuerySets and other data to CSV and Excel.
 
 
 Features
@@ -30,7 +30,7 @@ Features
 Requirements
 ------------
 
-django-exporter supports Python 3 only and requires at least Django 1.11.
+django-dataexporter supports Python 3 only and requires at least Django 1.11.
 In addition, the Python package ``openpyxl`` needs to be installed.
 
 
@@ -56,6 +56,6 @@ Now you're ready to run the tests:
 Resources
 ---------
 
-* `Documentation <https://django-exporter.readthedocs.io>`_
-* `Bug Tracker <https://github.com/moccu/django-exporter/issues>`_
-* `Code <https://github.com/moccu/django-exporter/>`_
+* `Documentation <https://django-dataexporter.readthedocs.io>`_
+* `Bug Tracker <https://github.com/moccu/django-dataexporter/issues>`_
+* `Code <https://github.com/moccu/django-dataexporter/>`_

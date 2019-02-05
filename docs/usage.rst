@@ -11,7 +11,7 @@ The example explains the usage in the best way.
 
 .. code-block:: python
 
-    from django_exporter import action_export_factory
+    from django_dataexporter import action_export_factory
     from django.contrib import admin
 
     from .models import User

@@ -1,6 +1,6 @@
 .PHONY: clean tests cov docs release
 
-VERSION = $(shell pipenv run python -c "print(__import__('django_exporter').__version__)")
+VERSION = $(shell pipenv run python -c "print(__import__('django_dataexporter').__version__)")
 
 clean:
 	rm -fr docs/_build build/ dist/

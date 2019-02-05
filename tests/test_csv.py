@@ -1,6 +1,6 @@
 import io
 
-from django_exporter.csv import CsvExporter
+from django_dataexporter.csv import CsvExporter
 
 
 class TestCsvExporter:

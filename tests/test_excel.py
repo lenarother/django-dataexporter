@@ -1,6 +1,6 @@
 import io
 
-from django_exporter.excel import ExcelExporter
+from django_dataexporter.excel import ExcelExporter
 
 
 class TestExcelExporter:

@@ -1,7 +1,7 @@
-django\_exporter.exporter module
-================================
+django\_dataexporter.exporter module
+====================================
 
-.. automodule:: django_exporter.exporter
+.. automodule:: django_dataexporter.exporter
     :members:
     :undoc-members:
     :show-inheritance:

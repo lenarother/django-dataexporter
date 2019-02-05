@@ -2,7 +2,7 @@ from datetime import date
 
 import pytest
 
-from django_exporter.base import Exporter
+from django_dataexporter.base import Exporter
 from tests.mockapp.models import DummyModel
 
 

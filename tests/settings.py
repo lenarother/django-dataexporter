@@ -16,7 +16,7 @@ INSTALLED_APPS = [
     'django.contrib.auth',
     'django.contrib.contenttypes',
 
-    'django_exporter',
+    'django_dataexporter',
     'tests.mockapp',
 ]
 

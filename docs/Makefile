@@ -20,7 +20,7 @@ clean:
 	-rm -rf $(BUILDDIR)/*
 
 apidoc:
-	sphinx-apidoc --separate --force --module-first -H "API Reference"  -o api ../django_exporter
+	sphinx-apidoc --separate --force --module-first -H "API Reference"  -o api ../django_dataexporter
 
 html:
 	$(SPHINXBUILD) -b html $(ALLSPHINXOPTS) $(BUILDDIR)/html

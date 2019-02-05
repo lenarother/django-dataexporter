@@ -4,7 +4,7 @@ import pytest
 from django.contrib import admin
 from openpyxl import load_workbook
 
-from django_exporter.admin import export_csv_action_factory, export_excel_action_factory
+from django_dataexporter.admin import export_csv_action_factory, export_excel_action_factory
 from tests.mockapp.models import DummyModel
 
 
