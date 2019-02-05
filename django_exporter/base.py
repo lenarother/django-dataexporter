@@ -106,11 +106,6 @@ class Exporter(object):
         Helper to extract data from record. If the field contains dots, a drill
         down is done to fetch data of nested objects or dictionaries.
         """
-        if '.' not in field:
-            if isinstance(record, dict):
-                return record.get(field)
-            return getattr(record, field)
-
         fields = field.split('.')
         fields.reverse()
         while fields:
