@@ -35,7 +35,7 @@ class ExcelExporterMixin(object):
     def write(self, queryset, fobj=None):
         """
         Generate XLSX data. If fobj is provided, the content is written to that file
-        object. If no fobj is provided, the workbook is returned.
+        object. If no fobj is provided, the workbook and fobj is returned.
         """
         workbook = openpyxl.Workbook()
         sheet, start_row = self.get_sheet(workbook)
@@ -65,11 +65,12 @@ class ExcelExporterMixin(object):
 
         for j, width in enumerate(column_widths, 1):
             sheet.column_dimensions[openpyxl.utils.get_column_letter(j)].width = width
+
         if fobj:
             workbook.save(fobj)
             return fobj
 
-        return workbook
+        return (workbook, fobj)
 
 
 class ExcelExporter(ExcelExporterMixin, Exporter):

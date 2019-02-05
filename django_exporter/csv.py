@@ -11,7 +11,8 @@ class CsvExporterMixin(object):
     def get_writer(self, fobj):
         if not fobj:
             fobj = io.StringIO()
-        return csv.writer(fobj, dialect=csv.excel)
+        writer = csv.writer(fobj, dialect=csv.excel)
+        return (writer, fobj)
 
     def write_header(self, writer, queryset):
         writer.writerow([str(name) for name in self.get_header(queryset)])
@@ -20,9 +21,9 @@ class CsvExporterMixin(object):
         """
         Generate CSV data. If fobj is provided, the content is written to that file
         object. If no fobj is provided, a csv.writer (with a attached io.StringIO)
-        object is returned.
+        object and the StringIO fobj is returned.
         """
-        writer = self.get_writer(fobj)
+        writer, writer_fobj = self.get_writer(fobj)
         if self.header:
             self.write_header(writer, queryset)
 
@@ -36,7 +37,7 @@ class CsvExporterMixin(object):
         if fobj:
             return fobj
 
-        return writer
+        return (writer, writer_fobj)
 
 
 class CsvExporter(CsvExporterMixin, Exporter):
