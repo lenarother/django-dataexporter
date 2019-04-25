@@ -1,14 +1,16 @@
+from django.utils.text import slugify
 from django.utils.translation import ugettext_lazy as _
 
 from .csv import CsvExporter
 from .excel import ExcelExporter
 
 
-def export_action_factory(cls, fields=None, header=None, label=None):
+def export_action_factory(cls, fields=None, header=None, label=None, name=None):
     def export_view(self, request, queryset):
         exporter = cls(fields=fields, header=header)
         return exporter.get_http_response(request, queryset)
     export_view.short_description = label or _('Export selected records')
+    export_view.__name__ = name or slugify(str(cls).split('.')[-1])
 
     return export_view
 
