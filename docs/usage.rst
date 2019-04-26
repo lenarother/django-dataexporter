@@ -21,6 +21,6 @@ The example explains the usage in the best way.
         export_fields = ('id', 'first_name', 'last_name')
 
         actions = [
-                export_csv_action_factory(header='csv', label='Export as CSV', fields=export_fields),
-                export_excel_action_factory(header='xlsx', label='Export as XLSX', fields=export_fields),
+                export_csv_action_factory(fields=export_fields, header=True, label='Export as CSV', ),
+                export_excel_action_factory(fields=export_fields, header=True, label='Export as XLSX', ),
             ]
