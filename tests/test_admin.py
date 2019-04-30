@@ -48,9 +48,9 @@ class TestExport:
         request.user = User.objects.get(pk=user_id)
 
         exporter_excel = export_excel_action_factory()
-        exporter_csv = export_csv_action_factory(name='foo_bar')
+        exporter_csv = export_csv_action_factory()
         self.modeladmin.actions += [exporter_excel, exporter_csv]
         actions = self.modeladmin.get_actions(request)
 
         assert len(actions) == 3
-        assert [*actions] == ['delete_selected', 'excelexporter', 'foo_bar']
+        assert [*actions] == ['delete_selected', 'excelexporter', 'csvexporter']
