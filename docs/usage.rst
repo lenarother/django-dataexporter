@@ -37,9 +37,17 @@ It is especially handy when defining a custom dataexporter class.
     from .models import User
 
 
+    class CustomExporter(CsvExporter):
+        fields = ['first_name', 'last_name']
+        headers = ['foo', 'bar']
+
+        def get_header(self, queryset):
+            return self.headers
+
+
     class UserAdmin(admin.ModelAdmin):
         export_fields = ('id', 'first_name', 'last_name')
-        actions = ['csv_export', 'excel_export']
+        actions = ['csv_export', 'excel_export', 'custom_export']
 
         def csv_export(self, request, queryset):
             exporter = CsvExporter(fields=self.export_fields, header=True)
@@ -50,3 +58,8 @@ It is especially handy when defining a custom dataexporter class.
             exporter = ExcelExporter(fields=self.export_fields, header=True)
             return exporter.get_http_response(request, queryset)
         excel_export.short_description = 'Export surveys as XLSX'
+
+        def custom_export(self, request, queryset):
+            exporter = CustomExporter()
+            return exporter.get_http_response(request, queryset)
+        custom_export.short_description = 'Export surveys as XLSX'
