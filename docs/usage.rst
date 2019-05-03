@@ -7,7 +7,7 @@ The API of the Exporter class is subject to change and therefore not yet documen
 Admin actions
 -------------
 
-The library provides action factories.
+The library provides admin action factories for csv and xlsx formats.
 
 .. code-block:: python
 
@@ -38,11 +38,14 @@ It is especially handy when defining a custom dataexporter class.
 
 
     class CustomExporter(CsvExporter):
+        export_name = 'Custom'
         fields = ['first_name', 'last_name']
-        headers = ['foo', 'bar']
+        field_header_verbose_names = {'last_name': 'Surname'}
+        filename_extension = 'txt'
 
-        def get_header(self, queryset):
-            return self.headers
+        def get_data_value(self, record, field):
+            record = super().get_data_value(record, field)
+            return record or 'Sorry, no data here.'
 
 
     class UserAdmin(admin.ModelAdmin):
@@ -62,4 +65,4 @@ It is especially handy when defining a custom dataexporter class.
         def custom_export(self, request, queryset):
             exporter = CustomExporter()
             return exporter.get_http_response(request, queryset)
-        custom_export.short_description = 'Export surveys as XLSX'
+        custom_export.short_description = 'Export name and surname only'
