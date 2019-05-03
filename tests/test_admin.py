@@ -2,6 +2,7 @@ from io import BytesIO
 
 import pytest
 from django.contrib import admin
+from django.contrib.auth import get_user_model
 from openpyxl import load_workbook
 
 from django_dataexporter.admin import export_csv_action_factory, export_excel_action_factory
@@ -39,3 +40,17 @@ class TestExport:
         assert sheet.cell(1, 2).value == 'email'
         assert sheet.cell(2, 1).value == 'Foo'
         assert sheet.cell(2, 2).value == 'foo@bar.baz'
+
+    def test_use_action_factory_twice(self, rf, admin_client):
+        request = rf.get('/')
+        User = get_user_model()
+        user_id = admin_client.session['_auth_user_id']
+        request.user = User.objects.get(pk=user_id)
+
+        exporter_excel = export_excel_action_factory()
+        exporter_csv = export_csv_action_factory()
+        self.modeladmin.actions += [exporter_excel, exporter_csv]
+        actions = self.modeladmin.get_actions(request)
+
+        assert len(actions) == 3
+        assert [*actions] == ['delete_selected', 'excelexporter', 'csvexporter']

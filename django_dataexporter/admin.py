@@ -9,6 +9,7 @@ def export_action_factory(cls, fields=None, header=None, label=None):
         exporter = cls(fields=fields, header=header)
         return exporter.get_http_response(request, queryset)
     export_view.short_description = label or _('Export selected records')
+    export_view.__name__ = cls.__name__.lower()
 
     return export_view
 
