@@ -21,7 +21,8 @@ The library provides action factories.
         export_fields = ('id', 'first_name', 'last_name')
         actions = [
             export_csv_action_factory(fields=export_fields, header=True, label='Export as CSV'),
-            export_excel_action_factory(fields=export_fields, header=True, label='Export as XLSX')]
+            export_excel_action_factory(fields=export_fields, header=True, label='Export as XLSX'),
+        ]
 
 
 The dataexporter classes can be also used inside an admin function.
@@ -43,9 +44,9 @@ It is especially handy when defining a custom dataexporter class.
         def csv_export(self, request, queryset):
             exporter = CsvExporter(fields=self.export_fields, header=True)
             return exporter.get_http_response(request, queryset)
-        csv_export.short_description = _('Export surveys as CSV')
+        csv_export.short_description = 'Export surveys as CSV'
 
         def excel_export(self, request, queryset):
             exporter = ExcelExporter(fields=self.export_fields, header=True)
             return exporter.get_http_response(request, queryset)
-        excel_export.short_description = _('Export surveys as XLSX')
+        excel_export.short_description = 'Export surveys as XLSX'
