@@ -5,6 +5,10 @@ django-dataexporter
    :target: https://pypi.org/project/django-dataexporter/
    :alt: Latest Version
 
+.. image:: https://github.com/stephrdev/django-tapeforms/workflows/Test/badge.svg?branch=master
+   :target: https://github.com/stephrdev/django-tapeforms/actions?workflow=Test
+   :alt: CI Status
+
 .. image:: https://codecov.io/gh/moccu/django-dataexporter/branch/master/graph/badge.svg
    :target: https://codecov.io/gh/moccu/django-dataexporter
    :alt: Coverage Status
@@ -12,9 +16,6 @@ django-dataexporter
 .. image:: https://readthedocs.org/projects/django-dataexporter/badge/?version=latest
    :target: https://django-dataexporter.readthedocs.io/en/stable/?badge=latest
    :alt: Documentation Status
-
-.. image:: https://travis-ci.org/moccu/django-dataexporter.svg?branch=master
-   :target: https://travis-ci.org/moccu/django-dataexporter
 
 
 *django-dataexporter* is a extensible helper to export Django QuerySets and other data to CSV and Excel.
