@@ -16,12 +16,13 @@ INSTALLED_APPS = [
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
-
     'django_dataexporter',
     'tests.mockapp',
 ]
 
-TEMPLATES = [{
-    'BACKEND': 'django.template.backends.django.DjangoTemplates',
-    'APP_DIRS': True,
-}]
+TEMPLATES = [
+    {
+        'BACKEND': 'django.template.backends.django.DjangoTemplates',
+        'APP_DIRS': True,
+    }
+]

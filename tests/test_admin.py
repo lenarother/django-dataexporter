@@ -31,7 +31,8 @@ class TestExport:
         response = exporter(self, request=request, queryset=DummyModel.objects.all())
 
         assert response['Content-Type'] == (
-            'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet')
+            'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet'
+        )
 
         workbook = load_workbook(filename=BytesIO(response.content))
         sheet = workbook.worksheets[0]

@@ -6,8 +6,7 @@ class MockModel(models.Model):
 
 
 class RelatedMockModel(models.Model):
-    parent = models.ForeignKey(
-        MockModel, related_name='related_mock', on_delete=models.CASCADE)
+    parent = models.ForeignKey(MockModel, related_name='related_mock', on_delete=models.CASCADE)
     value = models.CharField(max_length=256, default='', blank=True)
 
 
