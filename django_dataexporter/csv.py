@@ -29,10 +29,9 @@ class CsvExporterMixin(object):
 
         data_fields, data = self.get_data(queryset)
         for row in data:
-            writer.writerow([
-                self.get_value_repr(field, row.get(field, ''))
-                for field in data_fields
-            ])
+            writer.writerow(
+                [self.get_value_repr(field, row.get(field, '')) for field in data_fields]
+            )
 
         if fobj:
             return fobj

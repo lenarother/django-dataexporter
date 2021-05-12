@@ -4,18 +4,11 @@ from django_dataexporter.excel import ExcelExporter
 
 
 class TestExcelExporter:
-
     def setup(self):
-        self.data = [
-            {'foo': 'bar', 'lorem': 'ipsum'},
-            {'foo': 'bar2', 'lorem': 'ipsum2'}
-        ]
+        self.data = [{'foo': 'bar', 'lorem': 'ipsum'}, {'foo': 'bar2', 'lorem': 'ipsum2'}]
 
     def test_with_header(self):
-        exporter, fobj = ExcelExporter(
-            fields=('foo', 'lorem'),
-            header=True
-        ).write(self.data)
+        exporter, fobj = ExcelExporter(fields=('foo', 'lorem'), header=True).write(self.data)
         assert [[cell.value for cell in row] for row in exporter['Export'].iter_rows()] == [
             ['foo', 'lorem'],
             ['bar', 'ipsum'],
@@ -30,10 +23,7 @@ class TestExcelExporter:
         assert len(fobj.getvalue()) > 0
 
     def test_without_header(self):
-        exporter, fobj = ExcelExporter(
-            fields=('foo', 'lorem'),
-            header=False
-        ).write(self.data)
+        exporter, fobj = ExcelExporter(fields=('foo', 'lorem'), header=False).write(self.data)
         assert [[cell.value for cell in row] for row in exporter['Export'].iter_rows()] == [
             ['bar', 'ipsum'],
             ['bar2', 'ipsum2'],

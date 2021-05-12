@@ -8,7 +8,6 @@ from tests.mockapp.models import DummyModel
 
 @pytest.mark.django_db
 class TestExporter:
-
     def test_init(self):
         exporter = Exporter()
 
@@ -21,7 +20,8 @@ class TestExporter:
         header = False
         field_header_verbose_names = {'foo': 'bar'}
         exporter = Exporter(
-            fields=fields, header=header, field_header_verbose_names=field_header_verbose_names)
+            fields=fields, header=header, field_header_verbose_names=field_header_verbose_names
+        )
 
         assert exporter.fields == fields
         assert exporter.header is header
@@ -72,7 +72,8 @@ class TestExporter:
         field_header_verbose_names = {'name': 'Firstname', 'email': 'E-mail'}
         DummyModel.objects.create(name=name, slug=slug, email=email)
         exporter = Exporter(
-            fields=fields, field_header_verbose_names=field_header_verbose_names)
+            fields=fields, field_header_verbose_names=field_header_verbose_names
+        )
 
         assert exporter.get_header(None) == ['Firstname', 'Foo', 'E-mail']
 
@@ -84,7 +85,8 @@ class TestExporter:
         field_header_verbose_names = {'name': 'Firstname', 'email': 'E-mail'}
         DummyModel.objects.create(name=name, slug=slug, email=email)
         exporter = Exporter(
-            fields=fields, field_header_verbose_names=field_header_verbose_names)
+            fields=fields, field_header_verbose_names=field_header_verbose_names
+        )
 
         assert exporter.get_header(DummyModel.objects.all()) == ['Firstname', 'slug', 'E-mail']
 
@@ -96,7 +98,8 @@ class TestExporter:
         field_header_verbose_names = {'name': 'Firstname', 'email': 'E-mail'}
         DummyModel.objects.create(name=name, slug=slug, email=email)
         exporter = Exporter(
-            fields=fields, field_header_verbose_names=field_header_verbose_names)
+            fields=fields, field_header_verbose_names=field_header_verbose_names
+        )
 
         assert exporter.get_header(DummyModel.objects.all()) == ['Firstname', 'lower', 'E-mail']
 

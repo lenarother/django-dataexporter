@@ -25,7 +25,8 @@ class Exporter(object):
         self.fields = fields or self.fields
         self.header = header if header is not None else self.header
         self.field_header_verbose_names = field_header_verbose_names or (
-            self.field_header_verbose_names or {})
+            self.field_header_verbose_names or {}
+        )
 
     def get_export_name(self):
         return str(self.export_name)
@@ -37,7 +38,7 @@ class Exporter(object):
         return self.filename_template.format(
             date=date.today().strftime('%Y-%m-%d'),
             name=slugify(self.get_export_name().lower()),
-            ext=self.filename_extension
+            ext=self.filename_extension,
         )
 
     def get_header(self, queryset):
@@ -55,7 +56,8 @@ class Exporter(object):
 
         for field, column in zip(self.fields, columns):
             column = self.field_header_verbose_names.get(
-                field, column.split('.')[-1] if field == column else column)
+                field, column.split('.')[-1] if field == column else column
+            )
             header_columns.append(str(column))
 
         return header_columns
@@ -79,8 +81,7 @@ class Exporter(object):
             for part in obj_path:
                 obj = getattr(obj, part)
             try:
-                columns.append(str(
-                    obj._meta.get_field(field_name).verbose_name))
+                columns.append(str(obj._meta.get_field(field_name).verbose_name))
             except (AttributeError, FieldDoesNotExist):
                 columns.append(field)
 
@@ -92,12 +93,12 @@ class Exporter(object):
         data. We use a generator here to speed up generation and reduce memory
         consumption.
         """
+
         def data_generator():
             for record in queryset:
-                yield dict([
-                    (field, self.get_data_value(record, field))
-                    for field in self.fields
-                ])
+                yield dict(
+                    [(field, self.get_data_value(record, field)) for field in self.fields]
+                )
 
         return (self.fields, data_generator())
 
