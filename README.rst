@@ -9,8 +9,8 @@ django-dataexporter
    :target: https://github.com/stephrdev/django-tapeforms/actions?workflow=Test
    :alt: CI Status
 
-.. image:: https://codecov.io/gh/moccu/django-dataexporter/branch/master/graph/badge.svg
-   :target: https://codecov.io/gh/moccu/django-dataexporter
+.. image:: https://codecov.io/gh/lenarother/django-dataexporter/branch/master/graph/badge.svg
+   :target: https://codecov.io/gh/lenarother/django-dataexporter
    :alt: Coverage Status
 
 .. image:: https://readthedocs.org/projects/django-dataexporter/badge/?version=latest
@@ -56,5 +56,5 @@ Resources
 ---------
 
 * `Documentation <https://django-dataexporter.readthedocs.io>`_
-* `Bug Tracker <https://github.com/moccu/django-dataexporter/issues>`_
-* `Code <https://github.com/moccu/django-dataexporter/>`_
+* `Bug Tracker <https://github.com/lenarother/django-dataexporter/issues>`_
+* `Code <https://github.com/lenarother/django-dataexporter/>`_

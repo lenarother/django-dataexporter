@@ -4,11 +4,12 @@ version = "0.0.3"
 description = "Extensible helper to export Django QuerySets and other data to CSV and Excel."
 authors = [
 	"Stephan Jaekel <steph@rdev.info>",
+	"Magdalena Rother <rother.magdalena@gmail.com>"
 ]
 license = "MIT"
 readme = "README.rst"
-homepage = 'https://github.com/moccu/django-dataexporter'
-repository = 'https://github.com/moccu/django-dataexporter'
+homepage = 'https://github.com/lenarother/django-dataexporter'
+repository = 'https://github.com/lenarother/django-dataexporter'
 classifiers = [
 	"Development Status :: 5 - Production/Stable",
 	"License :: OSI Approved :: MIT License",
