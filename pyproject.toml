@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "django-dataexporter"
-version = "0.0.3"
+version = "1.0.0"
 description = "Extensible helper to export Django QuerySets and other data to CSV and Excel."
 authors = [
 	"Stephan Jaekel <steph@rdev.info>",
