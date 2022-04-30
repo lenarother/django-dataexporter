@@ -5,6 +5,7 @@
 .coverage
 .cache
 .pytest_cache
+.idea/
 .tox/
 htmlcov/
 dist/
