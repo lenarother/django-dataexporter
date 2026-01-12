@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "django-dataexporter"
-version = "1.0.0"
+version = "2.0.0"
 description = "Extensible helper to export Django QuerySets and other data to CSV and Excel."
 authors = [
 	"Stephan Jaekel <steph@rdev.info>",
@@ -24,10 +24,9 @@ packages = [{ include = "django_dataexporter" }]
 include = ["LICENSE.rst"]
 
 [tool.poetry.dependencies]
-python = ">=3.6,<4"
-importlib-metadata = {version = "*", python = "<3.8"}
+python = ">=3.10,<4"
 
-Django = ">=2.2"
+Django = ">=3.2"
 Sphinx = {version = ">=3.5", optional = true}
 openpyxl = ">=2.6"
 

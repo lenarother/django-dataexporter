@@ -1,9 +1,12 @@
 import io
 
+import pytest
+
 from django_dataexporter.csv import CsvExporter
 
 
 class TestCsvExporter:
+    @pytest.fixture(autouse=True)
     def setup(self):
         self.data = [{'foo': 'bar', 'lorem': 'ipsum'}, {'foo': 'bar2', 'lorem': 'ipsum2'}]
 

@@ -11,6 +11,7 @@ from tests.mockapp.models import DummyModel
 
 @pytest.mark.django_db
 class TestExport:
+    @pytest.fixture(autouse=True)
     def setup(self):
         self.modeladmin = admin.ModelAdmin(DummyModel, admin.site)
         DummyModel.objects.create(name='Foo', slug='foo', email='foo@bar.baz')
@@ -50,7 +51,7 @@ class TestExport:
 
         exporter_excel = export_excel_action_factory()
         exporter_csv = export_csv_action_factory()
-        self.modeladmin.actions += [exporter_excel, exporter_csv]
+        self.modeladmin.actions = list(self.modeladmin.actions) + [exporter_excel, exporter_csv]
         actions = self.modeladmin.get_actions(request)
 
         assert len(actions) == 3
