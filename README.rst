@@ -47,6 +47,15 @@ Install uv:
     $ curl -LsSf https://astral.sh/uv/install.sh | sh
     # or
     $ pip install uv
+<<<<<<< HEAD
+=======
+
+Install dependencies:
+
+.. code-block:: shell
+
+    $ uv sync --extra dev
+>>>>>>> f92989a (Update README)
 
 Install dependencies:
 
