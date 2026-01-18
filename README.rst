@@ -54,6 +54,11 @@ Install dependencies:
 
     $ uv sync --extra dev
 
+Set up pre-commit hooks (optional but recommended):
+
+.. code-block:: shell
+
+    $ uv run pre-commit install
 
 Now you're ready to run the tests:
 
@@ -85,6 +90,12 @@ Format code with ruff:
 .. code-block:: shell
 
     $ uv run ruff format .
+
+Run pre-commit on all files:
+
+.. code-block:: shell
+
+    $ uv run pre-commit run --all-files
 
 
 Resources
