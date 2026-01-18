@@ -31,7 +31,7 @@ Features
 Requirements
 ------------
 
-django-dataexporter supports Python 3 only and requires at least Django 2.
+django-dataexporter supports Python 3.10+ and Django 3.2+.
 In addition, the Python package ``openpyxl`` needs to be installed.
 
 
