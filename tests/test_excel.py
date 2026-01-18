@@ -20,9 +20,7 @@ class TestExcelExporter:
 
     def test_with_fobj(self):
         fobj = io.BytesIO()
-        ExcelExporter(
-            fields=('foo', 'lorem'),
-        ).write(self.data, fobj=fobj)
+        ExcelExporter(fields=('foo', 'lorem')).write(self.data, fobj=fobj)
         assert len(fobj.getvalue()) > 0
 
     def test_without_header(self):

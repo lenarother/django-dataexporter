@@ -61,17 +61,30 @@ Now you're ready to run the tests:
 
     $ uv run pytest
 
-Run tests with coverage and linters:
+Run linting and formatting checks:
 
 .. code-block:: shell
 
-    $ uv run pytest --isort --flake8 --black --cov
+    $ uv run ruff check .
+    $ uv run ruff format --check .
 
-Run tests across multiple Python and Django versions:
+Run tests with coverage:
+
+.. code-block:: shell
+
+    $ uv run pytest --cov
+
+Run tests across multiple Python and Django versions (includes linting):
 
 .. code-block:: shell
 
     $ uv run tox
+
+Format code with ruff:
+
+.. code-block:: shell
+
+    $ uv run ruff format .
 
 
 Resources
