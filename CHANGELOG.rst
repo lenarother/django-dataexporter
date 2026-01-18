@@ -1,6 +1,17 @@
 Changelog
 =========
 
+2.1.0 (2026-01-18)
+------------------
+
+* Add support for Python 3.12, 3.13, and 3.14
+* Add support for Django 6.0
+* Migrate from Poetry to uv for faster dependency management
+* Replace flake8, black, and isort with ruff for unified linting and formatting
+* Add pre-commit configuration for automated code quality checks
+* Update build system to use hatchling
+* Modernize pyproject.toml to PEP 621 standard format
+
 2.0.0 (2026-01-12)
 ------------------
 
