@@ -1,28 +1,21 @@
-.PHONY: clean correct docs pytests tests coverage-html release
+.PHONY: clean docs test coverage-html help
 .ONESHELL: release
 
-clean:
+help:  ## Show this help message
+	@echo "Available commands:"
+	@grep -E '^[a-zA-Z_-]+:.*?## .*$$' $(MAKEFILE_LIST) | awk 'BEGIN {FS = ":.*?## "}; {printf "  \033[36m%-15s\033[0m %s\n", $$1, $$2}'
+
+clean:  ## Remove build artifacts and caches
 	find . -name '*.pyc' -delete
-	rm -fr build/ dist/ htmlcov/ __pycache__
-	poetry run make -C docs clean
+	rm -fr build/ dist/ htmlcov/ __pycache__ .pytest_cache .ruff_cache docs/_build
 
-correct:
-	poetry run isort django_dataexporter tests
-	poetry run black -q django_dataexporter tests
+docs:  ## Build documentation
+	uv run sphinx-build -b html docs docs/_build/html
+	@echo "Build finished. The HTML pages are in docs/_build/html."
 
-docs:
-	poetry run make -C docs html
+test:  ## Run tests with pytest
+	@PYTHONPATH=$(CURDIR):${PYTHONPATH} uv run pytest
 
-pytests:
-	@PYTHONPATH=$(CURDIR):${PYTHONPATH} poetry run pytest
 
-tests:
-	@PYTHONPATH=$(CURDIR):${PYTHONPATH} poetry run pytest --cov --isort --flake8 --black
-
-coverage-html: pytests
-	poetry run coverage html
-
-release:
-	@echo About to release `poetry version -s`
-	@echo [ENTER] to continue; read
-	git tag -a "`poetry version -s`" -m "Version `poetry version -s`" && git push --follow-tags
+coverage-html: test  ## Generate HTML coverage report
+	uv run coverage html
