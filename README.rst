@@ -38,18 +38,40 @@ In addition, the Python package ``openpyxl`` needs to be installed.
 Prepare for development
 -----------------------
 
-A Python 3.6 interpreter is required in addition to poetry.
+A Python 3.10+ interpreter is required in addition to uv.
+
+Install uv:
 
 .. code-block:: shell
 
-    $ poetry install
+    $ curl -LsSf https://astral.sh/uv/install.sh | sh
+    # or
+    $ pip install uv
+
+Install dependencies:
+
+.. code-block:: shell
+
+    $ uv sync --extra dev
 
 
 Now you're ready to run the tests:
 
 .. code-block:: shell
 
-     $ poetry run pytest
+    $ uv run pytest
+
+Run tests with coverage and linters:
+
+.. code-block:: shell
+
+    $ uv run pytest --isort --flake8 --black --cov
+
+Run tests across multiple Python and Django versions:
+
+.. code-block:: shell
+
+    $ uv run tox
 
 
 Resources
