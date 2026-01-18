@@ -17,9 +17,7 @@ class TestCsvExporter:
     def test_with_fobj(self):
         fobj = io.StringIO()
 
-        CsvExporter(
-            fields=('foo', 'lorem'),
-        ).write(self.data, fobj=fobj)
+        CsvExporter(fields=('foo', 'lorem')).write(self.data, fobj=fobj)
         assert fobj.getvalue().splitlines() == ['foo,lorem', 'bar,ipsum', 'bar2,ipsum2']
 
     def test_without_header(self):

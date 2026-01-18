@@ -1,16 +1,17 @@
 import datetime
 import importlib
 import inspect
+import os
 import sys
 
-import os
+import django
 
 year = datetime.datetime.now().strftime('%Y')
 
 sys.path.insert(0, os.path.abspath('..'))
 
 os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'tests.settings')
-import django
+
 django.setup()
 
 
@@ -44,14 +45,21 @@ def linkcode_resolve(domain, info):
             lineno = '#L%d' % inspect.getsourcelines(item)[1]
         except (TypeError, IOError):
             pass
-    return ('https://github.com/%s/%s/blob/%s/%s.py%s' %
-            (github_user, project, head, filename, lineno))
+    return 'https://github.com/%s/%s/blob/%s/%s.py%s' % (
+        github_user,
+        project,
+        head,
+        filename,
+        lineno,
+    )
 
 
 intersphinx_mapping = {
     'python': ('http://docs.python.org/3.6', None),
-    'django': ('https://docs.djangoproject.com/en/dev/',
-               'https://docs.djangoproject.com/en/dev/_objects/'),
+    'django': (
+        'https://docs.djangoproject.com/en/dev/',
+        'https://docs.djangoproject.com/en/dev/_objects/',
+    ),
 }
 
 templates_path = ['_templates']
@@ -83,8 +91,9 @@ autodoc_member_order = 'bysource'
 
 inheritance_graph_attrs = dict(rankdir='TB')
 
-inheritance_node_attrs = dict(shape='rect', fontsize=14, fillcolor='gray90',
-                              color='gray30', style='filled')
+inheritance_node_attrs = dict(
+    shape='rect', fontsize=14, fillcolor='gray90', color='gray30', style='filled'
+)
 
 inheritance_edge_attrs = dict(penwidth=0.75)
 

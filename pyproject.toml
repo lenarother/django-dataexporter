@@ -31,11 +31,9 @@ dev = [
 	"pytest>=6.2",
 	"pytest-cov>=2.11",
 	"pytest-django>=4.2",
-	"pytest-flake8>=1.0",
-	"pytest-isort>=2.0",
-	"pytest-black>=0.3",
 	"pytest-snapshot>=0.6",
 	"coverage[toml]>=5.5",
+	"ruff>=0.8",
 	"tox>=4.0",
 	"tox-uv>=1.0",
 ]
@@ -54,17 +52,36 @@ packages = ["django_dataexporter"]
 [tool.pytest.ini_options]
 addopts = "-v --tb=short --nomigrations"
 testpaths = ["django_dataexporter", "tests"]
-flake8-max-line-length = 96
-flake8-ignore = ["E203", "E266", "E501", "W503"]
-flake8-max-complexity = 18
 DJANGO_SETTINGS_MODULE = "tests.settings"
 
-[tool.black]
+[tool.ruff]
 line-length = 96
-skip-string-normalization = true
-skip-numeric-underscore-normalization = true
-include = "\\.pyi?$"
-exclude = "/(\\.git|\\.tox|build|dist)/"
+target-version = "py310"
+
+[tool.ruff.lint]
+select = [
+	"E",  # pycodestyle errors
+	"W",  # pycodestyle warnings
+	"F",  # pyflakes
+	"I",  # isort
+	"C90",  # mccabe complexity
+]
+ignore = [
+	"E203",  # whitespace before ':'
+	"E266",  # too many leading '#' for block comment
+	"E501",  # line too long (handled by formatter)
+]
+
+[tool.ruff.lint.mccabe]
+max-complexity = 18
+
+[tool.ruff.lint.isort]
+known-first-party = ["django_dataexporter"]
+
+[tool.ruff.format]
+quote-style = "preserve"
+skip-magic-trailing-comma = false
+exclude = ["tests/settings.py"]
 
 [tool.coverage.run]
 branch = true
