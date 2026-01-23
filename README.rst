@@ -6,7 +6,7 @@ django-dataexporter
    :alt: Latest Version
 
 .. image:: https://github.com/stephrdev/django-tapeforms/workflows/Test/badge.svg?branch=master
-   :target: https://github.com/stephrdev/django-tapeforms/actions?workflow=Test
+   :target: https://github.com/lenarother/django-dataexporter/actions?workflow=Test
    :alt: CI Status
 
 .. image:: https://codecov.io/gh/lenarother/django-dataexporter/branch/master/graph/badge.svg
