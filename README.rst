@@ -14,7 +14,7 @@ django-dataexporter
    :alt: Coverage Status
 
 .. image:: https://readthedocs.org/projects/django-dataexporter/badge/?version=latest
-   :target: https://django-dataexporter.readthedocs.io/en/stable/?badge=latest
+   :target: https://django-dataexporter.readthedocs.io/en/latest/?badge=latest
    :alt: Documentation Status
 
 
