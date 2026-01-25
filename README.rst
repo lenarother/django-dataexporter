@@ -5,8 +5,8 @@ django-dataexporter
    :target: https://pypi.org/project/django-dataexporter/
    :alt: Latest Version
 
-.. image:: https://github.com/lenarother/django-dataexporter/workflows/Test/badge.svg?branch=master
-   :target: https://github.com/lenarother/django-dataexporter/actions?workflow=Test
+.. image:: https://github.com/lenarother/django-dataexporter/actions/workflows/test.yaml/badge.svg
+   :target: https://github.com/lenarother/django-dataexporter/actions/workflows/test.yaml
    :alt: CI Status
 
 .. image:: https://codecov.io/gh/lenarother/django-dataexporter/branch/master/graph/badge.svg
