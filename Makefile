@@ -10,7 +10,7 @@ clean:  ## Remove build artifacts and caches
 	rm -fr build/ dist/ htmlcov/ __pycache__ .pytest_cache .ruff_cache docs/_build
 
 docs:  ## Build documentation
-	uv run sphinx-build -b html docs docs/_build/html
+	uv run --extra docs sphinx-build -b html docs docs/_build/html
 	@echo "Build finished. The HTML pages are in docs/_build/html."
 
 test:  ## Run tests with pytest
